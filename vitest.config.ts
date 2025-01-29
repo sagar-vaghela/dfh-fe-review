@@ -26,5 +26,5 @@ export default mergeConfig(
         exclude: ["src/bootstrap.ts", "src/main.tsx", "**/api-mocks/**"],
       },
     },
-  })
+  }),
 );

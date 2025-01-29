@@ -80,3 +80,44 @@ _The assessment will be evaluated based on the following:_
   - Reusability
   - Performance
 - Bonus Tasks
+
+# Vite | API Integration | Tailwind CSS
+
+1. **Linters:** ESLint and Prettier.
+2. **Folders:** `app`, `api-mocks`, `component`, `lib`, `assets`, and `redux` (Folder Structure).
+3. **Tailwind CSS:** configured Tailwind CSS for better styling.
+4. **Redux-toolkit:** for state management.
+
+## Project structure
+
+The app has the following structure:
+
+`app`, `component`, `lib`, and `redux`
+
+- `components`: Components that can be used accross the app.
+- `icons`: Used Heroicons for static SVG icons to ensure a consistent design.
+- `redux`: Contains redux toolkit including reducers and store.
+- `lib` : Contains API functions integrated with Redux for state management.
+
+### Tasks : What I done.
+
+1. Create NextJS Application based blogs app.
+2. Used [Tailwind CSS](https://tailwindcss.com/) for design.
+3. Used my own ideas for design.
+4. App perform like below step:
+   - Home Screen Show Header:
+     - Display a list of header titles along with the company owner's logo.
+     - Include a "Create Person" button that opens a modal when clicked.
+     - Added a toggleable hamburger drawer for mobile responsiveness.
+   - User's Add Person Modal:
+     - Display a list of input fields with labels for all required data.
+     - On clicking "Create Person," add the new person to the table data.
+   - Person data Table:
+     - Display detailed information about all people by making an API call.
+     - Implement pagination for the table data on this page.
+5. Made app reponsive whenever i could.
+6. Divide components to keep it simple. It can be improvised more.
+7. Setup ESLint for Code standardization.
+8. Setup Prettier for Code format.
+9. WriteTechnical documentation on README.md file for better understading.
+10. Made API calls using Redux to fetch and display data in the app.
