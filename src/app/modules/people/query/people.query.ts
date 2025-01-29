@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { AxiosError } from "axios";
-
-import { API_RESOURCE } from "../../../shared/constant";
-import { useAxios } from "../../../shared/context";
+// import { API_RESOURCE } from "../../../shared/constant";
+// import { useAxios } from "../../../shared/context";
 import { Person } from "../model";
+import { PEOPLE } from "../../../../api-mocks/fixtures";
 
 interface PeopleQueryState {
   loading: boolean;
@@ -12,13 +12,15 @@ interface PeopleQueryState {
 }
 
 export const usePeopleQuery = (): PeopleQueryState => {
-  const axios = useAxios();
+  // const axios = useAxios();
   const [state, setState] = useState<PeopleQueryState>({ loading: false });
 
   const fetchPeoples = async () => {
     try {
-      const { data } = await axios.get<Person[]>(`/${API_RESOURCE.PEOPLE}`);
+      // const { data } = await axios.get<Person[]>(`/${API_RESOURCE.PEOPLE}`);
+      // The backend API is not working,so I took the data directly from mock data.
 
+      const data = PEOPLE;
       setState({ data, loading: false, error: undefined });
     } catch (error) {
       setState({ data: undefined, error: error as AxiosError, loading: false });

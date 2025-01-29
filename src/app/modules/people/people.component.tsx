@@ -1,10 +1,8 @@
 import { Person } from "./model";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../redux/store";
-import { fetchPeople } from "../../../redux/slices/peopleSlices";
 import { Loader } from "../../../component/loader/loader";
+import { usePeopleQuery } from "./query";
 
 const headers = [
   { label: "Name", key: "name" },
@@ -15,16 +13,9 @@ const headers = [
 ];
 
 export function People() {
+  const { data, loading, error } = usePeopleQuery();
+
   const [currentPage, setCurrentPage] = useState(1);
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { loading, data, error } = useSelector(
-    (state: RootState) => state.people,
-  );
-
-  useEffect(() => {
-    dispatch(fetchPeople());
-  }, [dispatch]);
 
   const itemsPerPage = 10;
 

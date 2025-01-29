@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../redux/store";
-import { addPerson } from "../../../redux/slices/peopleSlices";
 import { Person } from "./model";
 import { InputField } from "../../../component/dynamicInput/InputField";
 
@@ -10,8 +7,6 @@ interface CreatePersonProps {
 }
 
 export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
-  const dispatch = useDispatch<AppDispatch>();
-
   const [formData, setFormData] = useState<Person>({
     id: "",
     name: "",
@@ -51,7 +46,7 @@ export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
       id: Date.now().toString(),
       updatedAt: new Date().toISOString(),
     };
-    dispatch(addPerson(newPerson));
+    console.log(newPerson); // This is where you will send the data to the backend
     setFormData({
       id: "",
       name: "",

@@ -3,15 +3,11 @@ import ReactDOM from "react-dom/client";
 import { App } from "./app";
 import "./index.css";
 import { bootstrap } from "./bootstrap";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
 
 bootstrap().then(() => {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <App />
     </React.StrictMode>,
   );
 });

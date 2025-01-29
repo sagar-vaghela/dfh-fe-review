@@ -84,20 +84,17 @@ _The assessment will be evaluated based on the following:_
 # Vite | API Integration | Tailwind CSS
 
 1. **Linters:** ESLint and Prettier.
-2. **Folders:** `app`, `api-mocks`, `component`, `lib`, `assets`, and `redux` (Folder Structure).
+2. **Folders:** `app`, `api-mocks`, `component`, `assets` (Folder Structure).
 3. **Tailwind CSS:** configured Tailwind CSS for better styling.
-4. **Redux-toolkit:** for state management.
 
 ## Project structure
 
 The app has the following structure:
 
-`app`, `component`, `lib`, and `redux`
+`app`, and `component`
 
 - `components`: Components that can be used accross the app.
 - `icons`: Used Heroicons for static SVG icons to ensure a consistent design.
-- `redux`: Contains redux toolkit including reducers and store.
-- `lib` : Contains API functions integrated with Redux for state management.
 
 ### Tasks : What I done.
 
@@ -119,5 +116,5 @@ The app has the following structure:
 6. Divide components to keep it simple. It can be improvised more.
 7. Setup ESLint for Code standardization.
 8. Setup Prettier for Code format.
-9. WriteTechnical documentation on README.md file for better understading.
-10. Made API calls using Redux to fetch and display data in the app.
+9. WriteTechnical documentation on README.md file for better understanding.
+10. This hook fetches detailed information about a specific post by making an API request to the appropriate endpoint. It manages the loading and error states while retrieving the post data, and updates the component with the fetched details once available.
