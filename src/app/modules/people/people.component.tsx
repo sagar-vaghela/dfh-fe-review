@@ -2,7 +2,7 @@ import { Person } from "./model";
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Loader } from "../../../component/loader/loader";
-import { usePeopleQuery } from "./query";
+import { AxiosError } from "axios";
 
 const headers = [
   { label: "Name", key: "name" },
@@ -12,15 +12,18 @@ const headers = [
   { label: "Movies", key: "movies" },
 ];
 
-export function People() {
-  const { data, loading, error } = usePeopleQuery();
+interface PeopleProps {
+  people: Person[];
+  loading: boolean;
+  error?: AxiosError;
+}
 
+export const People = ({ people, loading, error }: PeopleProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-
   const itemsPerPage = 10;
 
-  const totalPages = Math.ceil((data?.length || 0) / itemsPerPage);
-  const currentData = data?.slice(
+  const totalPages = Math.ceil(people.length / itemsPerPage);
+  const currentData = people.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
@@ -53,7 +56,7 @@ export function People() {
     return <Loader />;
   }
 
-  if (data === undefined || error) {
+  if (people === undefined || error) {
     return (
       <h2 className="text-center text-xl text-red-500">
         Oops! Looks like something went wrong!
@@ -109,4 +112,4 @@ export function People() {
       </div>
     </div>
   );
-}
+};

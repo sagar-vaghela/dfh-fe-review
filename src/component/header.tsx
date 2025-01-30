@@ -3,8 +3,13 @@ import DfhLogo from "../assets/logo.svg";
 import CommonModal from "./modal/commonModal";
 import { CreatePerson } from "../app/modules/people/createPerson.component";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import { Person } from "../app/modules/people";
 
-export const Header = () => {
+interface HeaderProps {
+  addPerson: (person: Person) => void;
+}
+
+export const Header = ({ addPerson }: HeaderProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -94,7 +99,7 @@ export const Header = () => {
         height="auto"
         title="Add Person"
       >
-        <CreatePerson setIsModalOpen={setIsModalOpen} />
+        <CreatePerson setIsModalOpen={setIsModalOpen} addPerson={addPerson} />
       </CommonModal>
     </>
   );

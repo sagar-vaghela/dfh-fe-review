@@ -4,9 +4,10 @@ import { InputField } from "../../../component/dynamicInput/InputField";
 
 interface CreatePersonProps {
   setIsModalOpen: (isOpen: boolean) => void;
+  addPerson: (newPerson: Person) => void;
 }
 
-export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
+export function CreatePerson({ setIsModalOpen, addPerson }: CreatePersonProps) {
   const [formData, setFormData] = useState<Person>({
     id: "",
     name: "",
@@ -27,9 +28,11 @@ export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const { name, value } = e.target;
-    const updatedMovies = [...formData.movies];
-    updatedMovies[index] = { ...updatedMovies[index], [name]: value };
-    setFormData((prev) => ({ ...prev, movies: updatedMovies }));
+    setFormData((prev) => {
+      const updatedMovies = [...prev.movies];
+      updatedMovies[index] = { ...updatedMovies[index], [name]: value };
+      return { ...prev, movies: updatedMovies };
+    });
   };
 
   const handleAddMovie = () => {
@@ -46,7 +49,9 @@ export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
       id: Date.now().toString(),
       updatedAt: new Date().toISOString(),
     };
-    console.log(newPerson); // This is where you will send the data to the backend
+
+    addPerson(newPerson);
+
     setFormData({
       id: "",
       name: "",
@@ -56,6 +61,7 @@ export function CreatePerson({ setIsModalOpen }: CreatePersonProps) {
       movies: [{ title: "", released: "" }],
       updatedAt: "",
     });
+
     setIsModalOpen(false);
   };
 
