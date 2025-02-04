@@ -11,7 +11,7 @@ import { People } from "./people.component";
 const renderPeople = async () => {
   renderWithProviders(<People />);
 
-  // await waitForLoading("Fetching People");
+  await waitForLoading("Fetching People");
 };
 
 describe("People", () => {
